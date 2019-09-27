@@ -289,5 +289,41 @@ void destory(int size, int data[])
     }
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+void heapify(int arr[], int arrSize, int node){
+	int root = node;
+	int leftChild = 2*node +1;
+	int rightChild = 2*node + 2;
+	
+	if(leftChild < arrSize && arr[leftChild] > arr[root]){
+		root = leftChild;
+	}
+	
+	if(rightChild < arrSize && arr[rightChild] > arr[root]){
+		root = rightChild;
+	}
+	
+	if(root != node){
+		swap(arr[node], arr[root]);
+		heapify(arr, arrSize, root);
+	}
+}
+
+
+void heapSort(int arr[], int arrSize){
+	for(int i = arrSize / 2 - 1; i >= 0; i--){
+		heapify(arr, arrSize, i);
+	}
+	
+	for(int i = arrSize - 1; i >= 0; i--){
+		swap(arr[0], arr[i]);
+		
+		heapify(arr, i, 0);
+	}
+}
+
+
+
 
 #endif
