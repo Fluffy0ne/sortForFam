@@ -23,17 +23,17 @@ int main()
     
     int length = 1000;               //setting up a testing array for building sorts.
     int *ran, *inc, *dec;
-    //arraySetups(ran, inc, dec, length);
-	ran = {new int[length]};
-	inc = {new int[length]};
-	dec = {new int[length]};
-	for(int i = 0; i < size; i++)
+	ran = new int[length];
+	inc = new int[length];
+	dec = new int[length];
+    arraySetups(ran, inc, dec, length);
+	/*for(int i = 0; i < length; i++)
     {
        ran[i] = randoml();
 	   inc[i] = i;
 	   dec[size - i] = i;
-    }
-	
+    }*/
+    
 	delete[] inc;
 	delete[] dec;
     //cout << "\n\nThe unsorted array is....\n\n";
@@ -117,15 +117,17 @@ int main()
         if(menu == 8)
         {
             cout << "\nYou have chosen to use the heap sort\n";
+            cout << "\nArray before it is sorted.\n";
             display(length, ran);
 			heapSort(ran, length);
+            cout << "\nArray after it is sorted.\n";
 			display(length, ran);
         }
         
         if(menu >= 0 && menu <= 8)
         {
             //display(size,test);
-            destory(size,test);
+            //destory(size,test);
             
             cout << "Back to be broken...";
             //display(size,test);
