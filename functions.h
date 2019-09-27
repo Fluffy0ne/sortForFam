@@ -1,3 +1,11 @@
+/*
+	Group Members: 
+		Daniel Woodard
+		Abhijit Dutta
+		Rachael Hawthrone
+		Brody Modglin
+*/
+
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
@@ -42,14 +50,15 @@ void selectionSort(int size,int data[]) // first sort.
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-void bubbleSort(int size, int data[]) // One of the simpler sorts, and number 2.
+void bubbleSort(int size, int data[]) //One of the simpler sorts, and number 2
 {
   bool check = false;
   int shrink = 1;
   do
   {
     check = false;
-    for(int i = 0; i < (size - shrink); i++) // each pair of elements in an ever-shrinking list
+	// each pair of elements in an ever-shrinking list
+    for(int i = 0; i < (size - shrink); i++) 
     {
       if(data[i] > data[i + 1])
       { // swap data[pairIndx] and data[pairIndx+1]
@@ -72,7 +81,8 @@ void insertionSort(int size, int data[]) // Number 3.
   {
     temp = data[i];// save this number
     j = i - 1;
-    while(data[j] > temp && j >= 0) // previous elements are bigger than saved element
+	// previous elements are bigger than saved element
+    while(data[j] > temp && j >= 0) 
     {
       data[j + 1] = data[j];// move previous element forward one position
       j--;
@@ -91,7 +101,8 @@ void insertionSortMod(int size, int data[]) // Number 4.
   {
     temp = data[i];// save this number
     j = i - 1;
-    while(data[j] < temp && j >= 0) // previous elements are bigger than saved element
+	//previous elements are bigger than saved element
+    while(data[j] < temp && j >= 0) 
     {
       data[j + 1] = data[j];// move previous element forward one position
       j--;
@@ -102,7 +113,8 @@ void insertionSortMod(int size, int data[]) // Number 4.
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-void merge (int left, int middle, int right, int data[]) // The merge part of merge sort.
+// The merge part of merge sort.
+void merge (int left, int middle, int right, int data[]) 
 {
    int leftSize = middle - left + 1; // left side of the merge sort array
    
@@ -112,7 +124,8 @@ void merge (int left, int middle, int right, int data[]) // The merge part of me
    int* rightArray = new int[rightSize]; // comparable array - right
    
    int leftIndex = 0; // for moving through the left part
-   int rightIndex = 0; // right part, doing this so I can shift through them separately.
+   // right part, doing this so I can shift through them separately.
+   int rightIndex = 0; 
    int arrayIndex = 0; // for the array index
    
    for(int i = 0; i < leftSize; i++) // putting values into left array
@@ -139,9 +152,11 @@ void merge (int left, int middle, int right, int data[]) // The merge part of me
         arrayIndex = arrayIndex + 1;
         rightIndex = rightIndex + 1;
       }
-   } // could still have something in either array left over, uneven ls/rs, or uneven shifting
+   } // could still have something in either array left over, 
+	 //uneven ls/rs, or uneven shifting
    
-   while(leftIndex < leftSize) // while loop before, should make only one of these true
+   // while loop before, should make only one of these true
+   while(leftIndex < leftSize) 
    { // left already ordered, if it is only one left just throw it in.
       data[left + arrayIndex] = leftArray[leftIndex];
       arrayIndex = arrayIndex + 1; 
@@ -163,7 +178,8 @@ void merge (int left, int middle, int right, int data[]) // The merge part of me
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-void mergeSort (int left, int right, int data[]) // building the recursion of merge sort.
+// building the recursion of merge sort.
+void mergeSort (int left, int right, int data[]) 
 {
    if (right - left > 0)
    {
@@ -176,7 +192,8 @@ void mergeSort (int left, int right, int data[]) // building the recursion of me
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-void mergeSort (int n, int data[]) // the sort called in main, sort 5 in this case.
+//the sort called in main, sort 5 in this case.
+void mergeSort (int n, int data[]) 
 {
    mergeSort (0, n - 1, data);
 }
@@ -199,7 +216,8 @@ int right_pivot(int right) // helper function pivot for quick sort
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-int partition(int left, int right, int data[], bool quickCheck) // partition for quick sort, helper function.
+// partition for quick sort, helper function.
+int partition(int left, int right, int data[], bool quickCheck) 
 {
     int pivot_index = 0;
   
@@ -236,7 +254,8 @@ int partition(int left, int right, int data[], bool quickCheck) // partition for
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-void quicksort(int left, int right, int data[], bool quickCheck) // helper function for recursion and partition.
+// helper function for recursion and partition.
+void quicksort(int left, int right, int data[], bool quickCheck) 
 {
     int division = 0;
     
@@ -253,7 +272,8 @@ void quicksort(int left, int right, int data[], bool quickCheck) // helper funct
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-void quicksort(int size, int data[], bool quickCheck) // what is actually called in main, sort 6.
+// what is actually called in main, sort 6.
+void quicksort(int size, int data[], bool quickCheck) 
 {
     quicksort(0, (size - 1), data, quickCheck);
 }
