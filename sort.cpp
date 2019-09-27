@@ -9,28 +9,28 @@
 
 int main()
 {
-    int menu = 9; // setting the first menu choice.
-    int size = 20; // setting up the size of the test array
-    srand(time(nullptr)); // setting up the srand for random number generation
-    // This is for changing between the two quick sorts to prevent unneeded code.
+    int menu = 9;                   // setting the first menu choice.
+    int size = 20;                  // setting up the size of the test array
+    srand(time(nullptr));           // setting up the srand for random number generation
+                                    // This is for changing between the two quick sorts to prevent unneeded code.
     bool quickCheck = false; 
     
     cout << "\n\n\n\n";
     
-    //setting up a testing array for building sorts.
+                                    //setting up a testing array for building sorts.
     int test [20] = {2, 1, 3, 5, 4, 20, 10, 12, 6, 7, 13,
                      8, 14, 9, 19, 15, 17, 16, 11, 18};
                      
     cout << "\n\nThe unsorted array is....\n\n";
                      
-    // viewing the array before any sort is applied.
-    display(size,test);// made into funcition, as it will have a lot of use.
+                                    // viewing the array before any sort is applied.
+    display(size,test);             // made into funcition, as it will have a lot of use.
 
     
     cout << "\n\n\n";
      
     
-    do// first do while to allow for the user to keep picking a new sort if they wish.
+    do                              // first do while to allow for the user to keep picking a new sort if they wish.
     {
         cout << "Which sort do you wish to use:: ";
         cout << "\n\nSelection(1)\n";
@@ -43,8 +43,8 @@ int main()
         cout << "Heap(8)\n";
         cout << "Exit(0)\n";
         
-        do // second do while to make sure good numeric input.
-        { // NEED TO ADD CHECK IF INPUT IS NOT A NUMBER. dont remember how atm but got examples to view. 
+        do                          // second do while to make sure good numeric input.
+        {                           // NEED TO ADD CHECK IF INPUT IS NOT A NUMBER. dont remember how atm but got examples to view. 
             cout << "\n\nSort::  ";
             cin >> menu;
             
@@ -55,8 +55,8 @@ int main()
         }
         while(menu < 0 || menu > 8); // second do while end.
         
-        if(menu == 1) // start of the sort menu, takes in user given input.
-        { //each sort should be stated via the first cout statment.
+        if(menu == 1)               // start of the sort menu, takes in user given input.
+        {                           //each sort should be stated via the first cout statment.
             cout << "\nYou have chosen to use the selection sort\n";
             selectionSort(size, test);
         }
