@@ -323,7 +323,17 @@ void heapSort(int arr[], int arrSize){
 	}
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////
 
+void random(int size, int data[])
+{                                                 
+
+    for(int i = 0; i < size; i++)
+    {
+       data[i] = rand() % 10000 + 0;
+    }
+    
+}
 
 
 #endif
