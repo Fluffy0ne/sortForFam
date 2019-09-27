@@ -381,9 +381,9 @@ int randoml()
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 void arraySetups(int ran[], int inc[], int dec[], int size){
-	ran = {new int[size]};
-	inc = {new int[size]};
-	dec = {new int[size]};
+	//ran = new int[size];
+	//inc = new int[size];
+	//dec = new int[size];
 	for(int i = 0; i < size; i++)
     {
        ran[i] = rand() % 10000 + 0;
