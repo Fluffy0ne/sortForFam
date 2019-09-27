@@ -311,16 +311,19 @@ void destory(int size, int data[])
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-void destroyO(int size, int data[]){ for(int i = 0 i < size; i++) { data[i] = random()}}
+void destroyO(int size, int data[]){
+	for(int i = 0; i < size; i++) { data[i] = random();}}
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-void destroyA(int size, int data[]){ for(int i = 0 i < size; i++) { data[i] = i}}
+void destroyA(int size, int data[]){
+	for(int i = 0; i < size; i++) { data[i] = i;}}
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 
-void destroyD(int size, int data[]){ for(int i = 0 i < size; i++) { data[i] = 10000 - i}}
+void destroyD(int size, int data[]){
+	for(int i = 0; i < size; i++) { data[i] = size - i;}}
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -358,23 +361,36 @@ void heapSort(int arr[], int arrSize){
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
-void random(int size, int data[])
+/*void random(int size, int data[])
 {                                                 
 
     for(int i = 0; i < size; i++)
     {
-       data[i] = rand() % 10000 + 0;
+       data[i] = rand() % 10000;
     }
     
-}
+}*/
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-void random()
+int randoml()
 {
-  return rand() % 10000 + 0;
+  return rand() % 10000;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
+
+void arraySetups(int ran[], int inc[], int dec[], int size){
+	ran = {new int[size]};
+	inc = {new int[size]};
+	dec = {new int[size]};
+	for(int i = 0; i < size; i++)
+    {
+       ran[i] = rand() % 10000 + 0;
+	   inc[i] = i;
+	   dec[size - i] = i;
+    }
+}
+
 
 #endif

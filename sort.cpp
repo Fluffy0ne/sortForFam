@@ -2,32 +2,44 @@
     using std::cout;
     using std::endl;
     using std::cin;
-    
+
 #include <ctime>
+#include <chrono>
 
 #include "functions.h"
 
 int main()
 {
+	srand(time(0));
+	std::chrono::high_resolution_clock::time_point begin, end;
+    std::chrono::duration<double> elapsed_time;
     int menu = 9;                   // setting the first menu choice.
     int size = 20;                  // setting up the size of the test array
-    srand(time(nullptr));           // setting up the srand for random number generation
+    //srand(time(NULL));           // setting up the srand for random number generation
                                     // This is for changing between the two quick sorts to prevent unneeded code.
     bool quickCheck = false; 
-    
+    int test[20];
     cout << "\n\n\n\n";
     
     int length = 1000;               //setting up a testing array for building sorts.
-    int *random = new int[length];
-    for (int i = 0; i < length; i++){
-        random[i] = 
+    int *ran, *inc, *dec;
+    //arraySetups(ran, inc, dec, length);
+	ran = {new int[length]};
+	inc = {new int[length]};
+	dec = {new int[length]};
+	for(int i = 0; i < size; i++)
+    {
+       ran[i] = randoml();
+	   inc[i] = i;
+	   dec[size - i] = i;
     }
-                     
-    }
-    cout << "\n\nThe unsorted array is....\n\n";
+	
+	delete[] inc;
+	delete[] dec;
+    //cout << "\n\nThe unsorted array is....\n\n";
                      
                                     // viewing the array before any sort is applied.
-    display(size,test);             // made into funcition, as it will have a lot of use.
+    //display(size,test);             // made into funcition, as it will have a lot of use.
 
     
     cout << "\n\n\n";
@@ -105,29 +117,31 @@ int main()
         if(menu == 8)
         {
             cout << "\nYou have chosen to use the heap sort\n";
-            //sort.(test);
+            display(length, ran);
+			heapSort(ran, length);
+			display(length, ran);
         }
         
         if(menu >= 0 && menu <= 8)
         {
-            display(size,test);
+            //display(size,test);
             destory(size,test);
             
             cout << "Back to be broken...";
-            display(size,test);
+            //display(size,test);
         }
         
         if(menu == 0)
         {
             cout << "\nYou have chosen to exit";
             cout << "\nThank you and have a good day!\n\n";
-            exit(0);
+            //exit(0);
         }
         
     }
-    while(menu >= 0 && menu <= 8); // end of first do while.
+    while(menu > 0 && menu <= 8); // end of first do while.
     
-    
+    delete[] ran;
     
     cout << "\n\n\n\n\n";
     
