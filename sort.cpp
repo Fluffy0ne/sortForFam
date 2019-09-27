@@ -17,10 +17,13 @@ int main()
     
     cout << "\n\n\n\n";
     
-                                    //setting up a testing array for building sorts.
-    int test [20] = {2, 1, 3, 5, 4, 20, 10, 12, 6, 7, 13,
-                     8, 14, 9, 19, 15, 17, 16, 11, 18};
+    int length = 1000;               //setting up a testing array for building sorts.
+    int *random = new int[length];
+    for (int i = 0; i < length; i++){
+        random[i] = 
+    }
                      
+    }
     cout << "\n\nThe unsorted array is....\n\n";
                      
                                     // viewing the array before any sort is applied.
