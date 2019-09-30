@@ -3,6 +3,7 @@
     using std::endl;
     using std::cin;
 
+#include <cstdlib>
 #include <ctime>
 #include <chrono>
 
@@ -23,10 +24,10 @@ int main()
     
     int length = 1000;               //setting up a testing array for building sorts.
     int *ran, *inc, *dec;
-	ran = new int[length];
-	inc = new int[length];
-	dec = new int[length];
-    arraySetups(ran, inc, dec, length);
+	//ran = new int[length];
+	//inc = new int[length];
+	//dec = new int[length];
+    //arraySetups(ran, inc, dec, length);
 	/*for(int i = 0; i < length; i++)
     {
        ran[i] = randoml();
@@ -34,14 +35,13 @@ int main()
 	   dec[size - i] = i;
     }*/
     
-	delete[] inc;
-	delete[] dec;
+	
     //cout << "\n\nThe unsorted array is....\n\n";
                      
                                     // viewing the array before any sort is applied.
     //display(size,test);             // made into funcition, as it will have a lot of use.
 
-    
+    /*
     cout << "\n\n\n";
      
     
@@ -142,8 +142,245 @@ int main()
         
     }
     while(menu > 0 && menu <= 8); // end of first do while.
-    
+    */
+	
+	/*************************************************************************/
+	
+	//AUTOMATIC SORT TIMING BELOW
+	//Selection 0
+	//Bubble 1
+	//Insertion 2
+	//Mod Insertion 3
+	//Merge 4
+	//Quick Last 5
+	//Quick Random 6
+	//Heap 7
+	
+	int arraySize[4] = {100,1000,10000,30000};
+	std::chrono::high_resolution_clock::time_point begin, end;
+    std::chrono::duration<double> elapsed_time;
+	double timeLists[8][4][3];
+	//First number is sort
+	//Second number is array length
+	//Third number is type of array, ran, inc, or dec
+	int sortUp;
+	int lengthUp;
+	int typeUp = 0;
+	
+	for(int k = 0; k < 4; k++){
+		sortUp = 0;
+		lengthUp = k;
+		length = arraySize[k];
+		ran = new int[length];
+		inc = new int[length];
+		dec = new int[length];
+		arraySetups(ran, inc, dec, length);
+		
+		//Selection Sort
+		
+		begin = std::chrono::high_resolution_clock::now();
+        selectionSort(length, ran);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		typeUp++;
+		
+		begin = std::chrono::high_resolution_clock::now();
+        selectionSort(length, inc);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		typeUp++;
+		
+		begin = std::chrono::high_resolution_clock::now();
+        selectionSort(length, dec);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		
+		//Bubble Sort
+		
+		typeUp = 0;
+		sortUp++;
+		arraySetups(ran, inc, dec, length);
+		begin = std::chrono::high_resolution_clock::now();
+        bubbleSort(length, ran);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		typeUp++;
+		
+		begin = std::chrono::high_resolution_clock::now();
+        bubbleSort(length, inc);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		typeUp++;
+		
+		begin = std::chrono::high_resolution_clock::now();
+        bubbleSort(length, dec);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		
+		//Insertion Sort
+		
+		typeUp = 0;
+		sortUp++;
+		arraySetups(ran, inc, dec, length);
+		begin = std::chrono::high_resolution_clock::now();
+        insertionSort(length, ran);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		typeUp++;
+		
+		begin = std::chrono::high_resolution_clock::now();
+        insertionSort(length, inc);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		typeUp++;
+		
+		begin = std::chrono::high_resolution_clock::now();
+        insertionSort(length, dec);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		
+		//Insertion Sort Mod
+		
+		typeUp = 0;
+		sortUp++;
+		arraySetups(ran, inc, dec, length);
+		begin = std::chrono::high_resolution_clock::now();
+        insertionSortMod(length, ran);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		typeUp++;
+		
+		begin = std::chrono::high_resolution_clock::now();
+        insertionSortMod(length, inc);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		typeUp++;
+		
+		begin = std::chrono::high_resolution_clock::now();
+        insertionSortMod(length, dec);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		
+		//Merge Sort
+		
+		typeUp = 0;
+		sortUp++;
+		arraySetups(ran, inc, dec, length);
+		begin = std::chrono::high_resolution_clock::now();
+        mergeSort(length, ran);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		typeUp++;
+		
+		begin = std::chrono::high_resolution_clock::now();
+        mergeSort(length, inc);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		typeUp++;
+		
+		begin = std::chrono::high_resolution_clock::now();
+        mergeSort(length, dec);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		
+		//Quick Last Sort
+		
+		typeUp = 0;
+		sortUp++;
+		arraySetups(ran, inc, dec, length);
+		begin = std::chrono::high_resolution_clock::now();
+        bubbleSort(length, ran);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		typeUp++;
+		
+		begin = std::chrono::high_resolution_clock::now();
+        bubbleSort(length, inc);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		typeUp++;
+		
+		begin = std::chrono::high_resolution_clock::now();
+        bubbleSort(length, dec);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		
+		//Quick Random Sort
+		
+		typeUp = 0;
+		sortUp++;
+		arraySetups(ran, inc, dec, length);
+		begin = std::chrono::high_resolution_clock::now();
+        bubbleSort(length, ran);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		typeUp++;
+		
+		begin = std::chrono::high_resolution_clock::now();
+        bubbleSort(length, inc);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		typeUp++;
+		
+		begin = std::chrono::high_resolution_clock::now();
+        bubbleSort(length, dec);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		
+		//Heap Sort
+		
+		typeUp = 0;
+		sortUp++;
+		arraySetups(ran, inc, dec, length);
+		begin = std::chrono::high_resolution_clock::now();
+        heapSort(ran, length);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		typeUp++;
+		
+		begin = std::chrono::high_resolution_clock::now();
+        heapSort(inc, length);
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+		typeUp++;
+		
+		begin = std::chrono::high_resolution_clock::now();
+        heapSort(dec, length);;
+		end = std::chrono::high_resolution_clock::now();
+        elapsed_time = end - begin;
+        timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+	}
+	
+	
+	
+	
+
     delete[] ran;
+	delete[] inc;
+	delete[] dec;
     
     cout << "\n\n\n\n\n";
     
