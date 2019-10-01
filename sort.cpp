@@ -11,126 +11,247 @@
 
 int main()
 {
-	srand(time(0));
-	std::chrono::high_resolution_clock::time_point begin, end;
-    std::chrono::duration<double> elapsed_time;
-    int menu = 9;                   // setting the first menu choice.
-    int size = 20;                  // setting up the size of the test array
-    //srand(time(NULL));           // setting up the srand for random number generation
-                                    // This is for changing between the two quick sorts to prevent unneeded code.
+	//std::chrono::high_resolution_clock::time_point begin, end;
+    //std::chrono::duration<double> elapsed_time;
+    int menu = 9;		// setting the first menu choice.
+    srand(time(NULL));	// setting up the srand for random number generation
+	// This is for changing between the two quick sorts to prevent unneeded code.
     bool quickCheck = false; 
-    int test[20];
-    cout << "\n\n\n\n";
+    cout << "\n\n";
     
-    int length = 1000;               //setting up a testing array for building sorts.
-    int *ran, *inc, *dec;
-	//ran = new int[length];
-	//inc = new int[length];
-	//dec = new int[length];
-    //arraySetups(ran, inc, dec, length);
-	/*for(int i = 0; i < length; i++)
-    {
-       ran[i] = randoml();
-	   inc[i] = i;
-	   dec[size - i] = i;
-    }*/
-    
+    int lengthCheck = 100;
+	int length = 100;
+    //int *ran, *inc, *dec;
 	
-    //cout << "\n\nThe unsorted array is....\n\n";
-                     
-                                    // viewing the array before any sort is applied.
-    //display(size,test);             // made into funcition, as it will have a lot of use.
-
-    /*
-    cout << "\n\n\n";
-     
-    
-    do                              // first do while to allow for the user to keep picking a new sort if they wish.
+	
+    do // first do while to allow for the user to keep picking a new sort if they wish.
     {
-        cout << "Which sort do you wish to use:: ";
-        cout << "\n\nSelection(1)\n";
-        cout << "Bubble(2)\n";
-        cout << "Insertion(3)\n";
-        cout << "Modified Insertion(4)\n";
-        cout << "Merge(5)\n";
-        cout << "Quick-Last element as pivot(6)\n";
-        cout << "Quick-Random element as pivot(7)\n";
-        cout << "Heap(8)\n";
-        cout << "Exit(0)\n";
-        
-        do                          // second do while to make sure good numeric input.
-        {                           // NEED TO ADD CHECK IF INPUT IS NOT A NUMBER. dont remember how atm but got examples to view. 
-            cout << "\n\nSort::  ";
+		do
+		{
+			cout << "\nWhich sort do you wish to use:: ";
+			cout << "\n\nSelection(1)\n";
+			cout << "Bubble(2)\n";
+			cout << "Insertion(3)\n";
+			cout << "Modified Insertion(4)\n";
+			cout << "Merge(5)\n";
+			cout << "Quick-Last element as pivot(6)\n";
+			cout << "Quick-Random element as pivot(7)\n";
+			cout << "Heap(8)\n";
+			cout << "Exit(0)\n";
+			
+			// NEED TO ADD CHECK IF INPUT IS NOT A NUMBER. dont remember how atm but got examples to view. 
+            cout << "\nPlease enter an array length between 2 and 100:";
+			cin >> lengthCheck;
+			cout << "\nPlease select the sort you would like:";
             cin >> menu;
             
             if(menu < 0 || menu > 8) // check for numeric menu check
             {
                 cout << "\n\nThe choices to choose are numerical between 0 - 8\n";
             }
+			if(lengthCheck > 100 || lengthCheck < 2){
+				cout << "\n\nLength must be between 2 and 100\n";
+			}
         }
-        while(menu < 0 || menu > 8); // second do while end.
-        
+        while((menu < 0 || menu > 8)&&(lengthCheck > 100 || lengthCheck < 2)); // second do while end.
+		
+        int *ran, *inc, *dec;
+		ran = new int[length];
+		inc = new int[length];
+		dec = new int[length];
+		arraySetups(ran, inc, dec, length);
+		
         if(menu == 1)               // start of the sort menu, takes in user given input.
         {                           //each sort should be stated via the first cout statment.
             cout << "\nYou have chosen to use the selection sort\n";
-            selectionSort(size, test);
+            cout << "\nRandom Array before it is sorted.\n";
+            display(length, ran);
+			selectionSort(length, ran);
+            cout << "\nRandom Array after it is sorted.\n";
+			display(length, ran);
+			
+			cout << "\nIncreasing Array before it is sorted.\n";
+            display(length, inc);
+			selectionSort(length, inc);
+            cout << "\nIncreasing Array after it is sorted.\n";
+			display(length, inc);
+			
+			
+			cout << "\nDecreasing Array before it is sorted.\n";
+            display(length, dec);
+			selectionSort(length, dec);
+            cout << "\nDecreasing Array after it is sorted.\n";
+			display(length, dec);
         }
         
         if(menu == 2)
         {
             cout << "\nYou have chosen to use the bubble sort\n";
-            bubbleSort(size, test);
+            cout << "\nRandom Array before it is sorted.\n";
+            display(length, ran);
+			bubbleSort(length, ran);
+            cout << "\nRandom Array after it is sorted.\n";
+			display(length, ran);
+			
+			cout << "\nIncreasing Array before it is sorted.\n";
+            display(length, inc);
+			bubbleSort(length, inc);
+            cout << "\nIncreasing Array after it is sorted.\n";
+			display(length, inc);
+			
+			
+			cout << "\nDecreasing Array before it is sorted.\n";
+            display(length, dec);
+			bubbleSort(length, dec);
+            cout << "\nDecreasing Array after it is sorted.\n";
+			display(length, dec);
         }
         
         if(menu == 3)
         {
             cout << "\nYou have chosen to use the insertion sort\n";
-            insertionSort(size, test);
+            cout << "\nRandom Array before it is sorted.\n";
+            display(length, ran);
+			insertionSort(length, ran);
+            cout << "\nRandom Array after it is sorted.\n";
+			display(length, ran);
+			
+			cout << "\nIncreasing Array before it is sorted.\n";
+            display(length, inc);
+			insertionSort(length, inc);
+            cout << "\nIncreasing Array after it is sorted.\n";
+			display(length, inc);
+			
+			
+			cout << "\nDecreasing Array before it is sorted.\n";
+            display(length, dec);
+			insertionSort(length, dec);
+            cout << "\nDecreasing Array after it is sorted.\n";
+			display(length, dec);
         }
 
         if(menu == 4)
         {
             cout << "\nYou have chosen to use the modified insertion sort\n";
-            insertionSortMod(size, test);
+            cout << "\nRandom Array before it is sorted.\n";
+            display(length, ran);
+			insertionSortMod(length, ran);
+            cout << "\nRandom Array after it is sorted.\n";
+			display(length, ran);
+			
+			cout << "\nIncreasing Array before it is sorted.\n";
+            display(length, inc);
+			insertionSortMod(length, inc);
+            cout << "\nIncreasing Array after it is sorted.\n";
+			display(length, inc);
+			
+			
+			cout << "\nDecreasing Array before it is sorted.\n";
+            display(length, dec);
+			insertionSortMod(length, dec);
+            cout << "\nDecreasing Array after it is sorted.\n";
+			display(length, dec);
         }
         
         if(menu == 5)
         {
             cout << "\nYou have chosen to use the merge sort\n";
-            mergeSort(size, test);
+            cout << "\nRandom Array before it is sorted.\n";
+            display(length, ran);
+			mergeSort(length, ran);
+            cout << "\nRandom Array after it is sorted.\n";
+			display(length, ran);
+			
+			cout << "\nIncreasing Array before it is sorted.\n";
+            display(length, inc);
+			mergeSort(length, inc);
+            cout << "\nIncreasing Array after it is sorted.\n";
+			display(length, inc);
+			
+			
+			cout << "\nDecreasing Array before it is sorted.\n";
+            display(length, dec);
+			mergeSort(length, dec);
+            cout << "\nDecreasing Array after it is sorted.\n";
+			display(length, dec);
         }
         
         if(menu == 6)
         {
             cout << "\nYou have chosen to use the quick sort(last element is pivot)\n";
-            quicksort(size, test, quickCheck);
+            quickCheck = false;
+			cout << "\nRandom Array before it is sorted.\n";
+            display(length, ran);
+			quickSort(length, ran, quickCheck);
+            cout << "\nRandom Array after it is sorted.\n";
+			display(length, ran);
+			
+			cout << "\nIncreasing Array before it is sorted.\n";
+            display(length, inc);
+			quickSort(length, inc, quickCheck);
+            cout << "\nIncreasing Array after it is sorted.\n";
+			display(length, inc);
+			
+			
+			cout << "\nDecreasing Array before it is sorted.\n";
+            display(length, dec);
+			quickSort(length, dec, quickCheck);
+            cout << "\nDecreasing Array after it is sorted.\n";
+			display(length, dec);
         }
         
         if(menu == 7)
         {
             cout << "\nYou have chosen to use the quick sort(random pivot)\n";
             quickCheck = true;
-            quicksort(size, test, quickCheck);
-            quickCheck = false;
+			cout << "\nRandom Array before it is sorted.\n";
+            display(length, ran);
+			quickSort(length, ran, quickCheck);
+            cout << "\nRandom Array after it is sorted.\n";
+			display(length, ran);
+			
+			cout << "\nIncreasing Array before it is sorted.\n";
+            display(length, inc);
+			quickSort(length, inc, quickCheck);
+            cout << "\nIncreasing Array after it is sorted.\n";
+			display(length, inc);
+			
+			
+			cout << "\nDecreasing Array before it is sorted.\n";
+            display(length, dec);
+			quickSort(length, dec, quickCheck);
+            cout << "\nDecreasing Array after it is sorted.\n";
+			display(length, dec);
         }
         
         if(menu == 8)
         {
             cout << "\nYou have chosen to use the heap sort\n";
-            cout << "\nArray before it is sorted.\n";
+			
+            cout << "\nRandom Array before it is sorted.\n";
             display(length, ran);
 			heapSort(ran, length);
-            cout << "\nArray after it is sorted.\n";
+            cout << "\nRandom Array after it is sorted.\n";
 			display(length, ran);
+			
+			
+			cout << "\nIncreasing Array before it is sorted.\n";
+            display(length, inc);
+			heapSort(inc, length);
+            cout << "\nIncreasing Array after it is sorted.\n";
+			display(length, inc);
+			
+			
+			cout << "\nDecreasing Array before it is sorted.\n";
+            display(length, dec);
+			heapSort(dec, length);
+            cout << "\nDecreasing Array after it is sorted.\n";
+			display(length, dec);
         }
         
         if(menu >= 0 && menu <= 8)
         {
-            //display(size,test);
-            //destory(size,test);
             
-            cout << "Back to be broken...";
-            //display(size,test);
         }
         
         if(menu == 0)
@@ -140,9 +261,13 @@ int main()
             //exit(0);
         }
         
+		quickCheck = false;
+		delete[] ran;
+		delete[] inc;
+		delete[] dec;
     }
     while(menu > 0 && menu <= 8); // end of first do while.
-    */
+    
 	
 	/*************************************************************************/
 	
@@ -155,7 +280,7 @@ int main()
 	//Quick Last 5
 	//Quick Random 6
 	//Heap 7
-	
+	int *ran, *inc, *dec;
 	int arraySize[4] = {100,1000,10000,30000};
 	std::chrono::high_resolution_clock::time_point begin, end;
     std::chrono::duration<double> elapsed_time;

@@ -255,7 +255,7 @@ int partition(int left, int right, int data[], bool quickCheck)
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 // helper function for recursion and partition.
-void quicksort(int left, int right, int data[], bool quickCheck) 
+void quickSort(int left, int right, int data[], bool quickCheck) 
 {
     int division = 0;
     
@@ -263,9 +263,9 @@ void quicksort(int left, int right, int data[], bool quickCheck)
     {
         division = partition(left, right, data, quickCheck);
         // smaller values to left of division, larger to right
-        quicksort(left, (division - 1), data, quickCheck);
+        quickSort(left, (division - 1), data, quickCheck);
         // now quicksort everything left of division
-        quicksort((division + 1), right, data, quickCheck);
+        quickSort((division + 1), right, data, quickCheck);
         // and everything right of division
     }
 }
@@ -273,9 +273,9 @@ void quicksort(int left, int right, int data[], bool quickCheck)
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 // what is actually called in main, sort 6.
-void quicksort(int size, int data[], bool quickCheck) 
+void quickSort(int size, int data[], bool quickCheck) 
 {
-    quicksort(0, (size - 1), data, quickCheck);
+    quickSort(0, (size - 1), data, quickCheck);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -292,6 +292,10 @@ void display(int size, int data[]) // simple display function.
             cout << data[i + 1];
             i++;
         }
+		
+		if(i > 0 && ((i%10) == 0)){
+			cout << endl;
+		}
     }
     cout << "\n\n";
 }
@@ -388,7 +392,7 @@ void arraySetups(int ran[], int inc[], int dec[], int size){
     {
        ran[i] = rand() % 10000 + 0;
 	   inc[i] = i;
-	   dec[size - i] = i;
+	   dec[size - i - 1] = i;
     }
 }
 
