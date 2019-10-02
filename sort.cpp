@@ -52,9 +52,11 @@ int main()
 			if(lengthCheck > 100 || lengthCheck < 2){
 				cout << "\n\nLength must be between 2 and 100\n";
 			}
+            length = lengthCheck;
         }
-        while((menu < 0 || menu > 8)&&(lengthCheck > 100 || lengthCheck < 2)); // second do while end.
+        while((menu < 0 || menu > 8) || (lengthCheck > 100 || lengthCheck < 2)); // second do while end.
 		
+        
         int *ran, *inc, *dec;
 		ran = new int[length];
 		inc = new int[length];
@@ -271,6 +273,8 @@ int main()
 	
 	/*************************************************************************/
 	
+    cout << "\n\nSTARTING AUTOMATIC SORTS\n\n";
+    
 	//AUTOMATIC SORT TIMING BELOW
 	//Selection 0
 	//Bubble 1
@@ -325,6 +329,7 @@ int main()
 		
 		//Bubble Sort
 		
+        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -350,6 +355,7 @@ int main()
 		
 		//Insertion Sort
 		
+        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -375,6 +381,7 @@ int main()
 		
 		//Insertion Sort Mod
 		
+        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -400,6 +407,7 @@ int main()
 		
 		//Merge Sort
 		
+        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -425,6 +433,7 @@ int main()
 		
 		//Quick Last Sort
 		
+        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -450,6 +459,7 @@ int main()
 		
 		//Quick Random Sort
 		
+        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -475,6 +485,7 @@ int main()
 		
 		//Heap Sort
 		
+        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -500,14 +511,14 @@ int main()
 	}
 	
 	
-	
+	cout <<"\n\nFINISHED AUTOMATIC SORTS\n\n";
 	
 
     delete[] ran;
 	delete[] inc;
 	delete[] dec;
     
-    cout << "\n\n\n\n\n";
+    cout << "\n\n";
     
     return 0;
 }
