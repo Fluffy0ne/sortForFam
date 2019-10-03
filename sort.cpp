@@ -2,10 +2,18 @@
     using std::cout;
     using std::endl;
     using std::cin;
-
+#include <iomanip>
+	using std::setw;
+	using std::right;
+	using std::left;
+	using std::setprecision;
+	using std::fixed;
+#include <string>
+	using std::string;
 #include <cstdlib>
 #include <ctime>
 #include <chrono>
+
 
 #include "functions.h"
 
@@ -52,11 +60,10 @@ int main()
 			if(lengthCheck > 100 || lengthCheck < 2){
 				cout << "\n\nLength must be between 2 and 100\n";
 			}
-            length = lengthCheck;
         }
         while((menu < 0 || menu > 8) || (lengthCheck > 100 || lengthCheck < 2)); // second do while end.
 		
-        
+        length = lengthCheck;
         int *ran, *inc, *dec;
 		ran = new int[length];
 		inc = new int[length];
@@ -284,6 +291,8 @@ int main()
 	//Quick Last 5
 	//Quick Random 6
 	//Heap 7
+	string sorts[8] = {"Selection","Bubble","Insertion","Mod Insertion",
+						"Merge","Quick Ran","Quick Last","Heap"};
 	int *ran, *inc, *dec;
 	int arraySize[4] = {100,1000,10000,30000};
 	std::chrono::high_resolution_clock::time_point begin, end;
@@ -513,6 +522,30 @@ int main()
 	
 	cout <<"\n\nFINISHED AUTOMATIC SORTS\n\n";
 	
+	cout << setw(20) << "\nArray Size   "
+		 << setw(11) << right << "100"
+		 << setw(34) << right << "1000"
+		 << setw(34) << right << "10000"
+		 << setw(33) << right << "30000";
+	
+	cout << setw(20) << right << "\nArray Type   ";
+	for(int asdf = 0; asdf < 4; asdf++){
+		cout << setw(11) << right << "ran"
+			 << setw(11) << right << "inc"
+			 << setw(11) << right << "dec";
+	}
+	cout << endl;
+	
+	for(int sort = 0; sort < 7; sort++){
+		cout << setw(17) << left << sorts[sort];
+		for(int arrLength = 0; arrLength < 4; arrLength++){
+			for(int arrType = 0; arrType < 3; arrType++){
+				cout << setw(11) << right << setprecision(5)
+					 << fixed << timeLists[sort][arrLength][arrType];
+			}
+		}
+		cout << endl;
+	}
 
     delete[] ran;
 	delete[] inc;
