@@ -29,6 +29,7 @@ int main()
     
     int lengthCheck = 100;
 	int length = 100;
+    int nCompared = 0; // used to calculate comparison while AUTO RUN
     //int *ran, *inc, *dec;
 	
 	
@@ -75,20 +76,20 @@ int main()
             cout << "\nYou have chosen to use the selection sort\n";
             cout << "\nRandom Array before it is sorted.\n";
             display(length, ran);
-			selectionSort(length, ran);
+			selectionSort(length, ran, nCompared);
             cout << "\nRandom Array after it is sorted.\n";
 			display(length, ran);
 			
 			cout << "\nIncreasing Array before it is sorted.\n";
             display(length, inc);
-			selectionSort(length, inc);
+			selectionSort(length, inc, nCompared);
             cout << "\nIncreasing Array after it is sorted.\n";
 			display(length, inc);
 			
 			
 			cout << "\nDecreasing Array before it is sorted.\n";
             display(length, dec);
-			selectionSort(length, dec);
+			selectionSort(length, dec, nCompared);
             cout << "\nDecreasing Array after it is sorted.\n";
 			display(length, dec);
         }
@@ -98,20 +99,20 @@ int main()
             cout << "\nYou have chosen to use the bubble sort\n";
             cout << "\nRandom Array before it is sorted.\n";
             display(length, ran);
-			bubbleSort(length, ran);
+			bubbleSort(length, ran, nCompared);
             cout << "\nRandom Array after it is sorted.\n";
 			display(length, ran);
 			
 			cout << "\nIncreasing Array before it is sorted.\n";
             display(length, inc);
-			bubbleSort(length, inc);
+			bubbleSort(length, inc, nCompared);
             cout << "\nIncreasing Array after it is sorted.\n";
 			display(length, inc);
 			
 			
 			cout << "\nDecreasing Array before it is sorted.\n";
             display(length, dec);
-			bubbleSort(length, dec);
+			bubbleSort(length, dec, nCompared);
             cout << "\nDecreasing Array after it is sorted.\n";
 			display(length, dec);
         }
@@ -121,20 +122,20 @@ int main()
             cout << "\nYou have chosen to use the insertion sort\n";
             cout << "\nRandom Array before it is sorted.\n";
             display(length, ran);
-			insertionSort(length, ran);
+			insertionSort(length, ran, nCompared);
             cout << "\nRandom Array after it is sorted.\n";
 			display(length, ran);
 			
 			cout << "\nIncreasing Array before it is sorted.\n";
             display(length, inc);
-			insertionSort(length, inc);
+			insertionSort(length, inc, nCompared);
             cout << "\nIncreasing Array after it is sorted.\n";
 			display(length, inc);
 			
 			
 			cout << "\nDecreasing Array before it is sorted.\n";
             display(length, dec);
-			insertionSort(length, dec);
+			insertionSort(length, dec, nCompared);
             cout << "\nDecreasing Array after it is sorted.\n";
 			display(length, dec);
         }
@@ -144,20 +145,20 @@ int main()
             cout << "\nYou have chosen to use the modified insertion sort\n";
             cout << "\nRandom Array before it is sorted.\n";
             display(length, ran);
-			insertionSortMod(length, ran);
+			insertionSortMod(length, ran, nCompared);
             cout << "\nRandom Array after it is sorted.\n";
 			display(length, ran);
 			
 			cout << "\nIncreasing Array before it is sorted.\n";
             display(length, inc);
-			insertionSortMod(length, inc);
+			insertionSortMod(length, inc, nCompared);
             cout << "\nIncreasing Array after it is sorted.\n";
 			display(length, inc);
 			
 			
 			cout << "\nDecreasing Array before it is sorted.\n";
             display(length, dec);
-			insertionSortMod(length, dec);
+			insertionSortMod(length, dec, nCompared);
             cout << "\nDecreasing Array after it is sorted.\n";
 			display(length, dec);
         }
@@ -167,20 +168,20 @@ int main()
             cout << "\nYou have chosen to use the merge sort\n";
             cout << "\nRandom Array before it is sorted.\n";
             display(length, ran);
-			mergeSort(length, ran);
+			mergeSort(length, ran, nCompared);
             cout << "\nRandom Array after it is sorted.\n";
 			display(length, ran);
 			
 			cout << "\nIncreasing Array before it is sorted.\n";
             display(length, inc);
-			mergeSort(length, inc);
+			mergeSort(length, inc, nCompared);
             cout << "\nIncreasing Array after it is sorted.\n";
 			display(length, inc);
 			
 			
 			cout << "\nDecreasing Array before it is sorted.\n";
             display(length, dec);
-			mergeSort(length, dec);
+			mergeSort(length, dec, nCompared);
             cout << "\nDecreasing Array after it is sorted.\n";
 			display(length, dec);
         }
@@ -191,20 +192,20 @@ int main()
             quickCheck = false;
 			cout << "\nRandom Array before it is sorted.\n";
             display(length, ran);
-			quickSort(length, ran, quickCheck);
+			quickSort(length, ran, quickCheck, nCompared);
             cout << "\nRandom Array after it is sorted.\n";
 			display(length, ran);
 			
 			cout << "\nIncreasing Array before it is sorted.\n";
             display(length, inc);
-			quickSort(length, inc, quickCheck);
+			quickSort(length, inc, quickCheck, nCompared);
             cout << "\nIncreasing Array after it is sorted.\n";
 			display(length, inc);
 			
 			
 			cout << "\nDecreasing Array before it is sorted.\n";
             display(length, dec);
-			quickSort(length, dec, quickCheck);
+			quickSort(length, dec, quickCheck, nCompared);
             cout << "\nDecreasing Array after it is sorted.\n";
 			display(length, dec);
         }
@@ -215,20 +216,20 @@ int main()
             quickCheck = true;
 			cout << "\nRandom Array before it is sorted.\n";
             display(length, ran);
-			quickSort(length, ran, quickCheck);
+			quickSort(length, ran, quickCheck, nCompared);
             cout << "\nRandom Array after it is sorted.\n";
 			display(length, ran);
 			
 			cout << "\nIncreasing Array before it is sorted.\n";
             display(length, inc);
-			quickSort(length, inc, quickCheck);
+			quickSort(length, inc, quickCheck, nCompared);
             cout << "\nIncreasing Array after it is sorted.\n";
 			display(length, inc);
 			
 			
 			cout << "\nDecreasing Array before it is sorted.\n";
             display(length, dec);
-			quickSort(length, dec, quickCheck);
+			quickSort(length, dec, quickCheck, nCompared);
             cout << "\nDecreasing Array after it is sorted.\n";
 			display(length, dec);
         }
@@ -239,21 +240,21 @@ int main()
 			
             cout << "\nRandom Array before it is sorted.\n";
             display(length, ran);
-			heapSort(ran, length);
+			heapSort(ran, length, nCompared);
             cout << "\nRandom Array after it is sorted.\n";
 			display(length, ran);
 			
 			
 			cout << "\nIncreasing Array before it is sorted.\n";
             display(length, inc);
-			heapSort(inc, length);
+			heapSort(inc, length, nCompared);
             cout << "\nIncreasing Array after it is sorted.\n";
 			display(length, inc);
 			
 			
 			cout << "\nDecreasing Array before it is sorted.\n";
             display(length, dec);
-			heapSort(dec, length);
+			heapSort(dec, length, nCompared);
             cout << "\nDecreasing Array after it is sorted.\n";
 			display(length, dec);
         }
@@ -304,6 +305,14 @@ int main()
 	int sortUp;
 	int lengthUp;
 	int typeUp = 0;
+    
+    //number of comparisons in each sort ***************
+    int position1 = 0;               // keeps track of the position in the array (amount of data)
+    int position2 = 0;               // keeps track of the position in the array (ran, inc Dec)
+    int position3 = 0;               // keeps track of the position in the array (type of sort)
+    int numberOfCommarison[4][3][7] = {0};
+    nCompared = 0;
+    // number of comparisons in each sort *************
 	
 	for(int k = 0; k < 4; k++){
 		sortUp = 0;
@@ -313,28 +322,45 @@ int main()
 		inc = new int[length];
 		dec = new int[length];
 		arraySetups(ran, inc, dec, length);
-		
+        
+        position1 = k;
+        position2 = 0;
+        position3 = 0;
+        
 		//Selection Sort
 		
 		begin = std::chrono::high_resolution_clock::now();
-        selectionSort(length, ran);
+        selectionSort(length, ran, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
 		typeUp++;
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2++;
+        
 		
 		begin = std::chrono::high_resolution_clock::now();
-        selectionSort(length, inc);
+        selectionSort(length, inc, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
 		typeUp++;
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2++;
+        
 		
 		begin = std::chrono::high_resolution_clock::now();
-        selectionSort(length, dec);
+        selectionSort(length, dec, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2 = 0;
+        position3++;
+        
 		
 		//Bubble Sort
 		
@@ -343,24 +369,36 @@ int main()
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
 		begin = std::chrono::high_resolution_clock::now();
-        bubbleSort(length, ran);
+        bubbleSort(length, ran, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
 		typeUp++;
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2++;
+        
 		
 		begin = std::chrono::high_resolution_clock::now();
-        bubbleSort(length, inc);
+        bubbleSort(length, inc, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
 		typeUp++;
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2++;
+        
 		
 		begin = std::chrono::high_resolution_clock::now();
-        bubbleSort(length, dec);
+        bubbleSort(length, dec, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2 = 0;
+        position3++;
 		
 		//Insertion Sort
 		
@@ -369,24 +407,37 @@ int main()
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
 		begin = std::chrono::high_resolution_clock::now();
-        insertionSort(length, ran);
+        insertionSort(length, ran, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
 		typeUp++;
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2++;
+        
 		
 		begin = std::chrono::high_resolution_clock::now();
-        insertionSort(length, inc);
+        insertionSort(length, inc, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
 		typeUp++;
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2++;
+        
 		
 		begin = std::chrono::high_resolution_clock::now();
-        insertionSort(length, dec);
+        insertionSort(length, dec, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2 = 0;
+        position3++;
+        
 		
 		//Insertion Sort Mod
 		
@@ -395,24 +446,37 @@ int main()
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
 		begin = std::chrono::high_resolution_clock::now();
-        insertionSortMod(length, ran);
+        insertionSortMod(length, ran, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
 		typeUp++;
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2++;
+        
 		
 		begin = std::chrono::high_resolution_clock::now();
-        insertionSortMod(length, inc);
+        insertionSortMod(length, inc, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
 		typeUp++;
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2++;
+        
 		
 		begin = std::chrono::high_resolution_clock::now();
-        insertionSortMod(length, dec);
+        insertionSortMod(length, dec, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2 = 0;
+        position3++;
+        
 		
 		//Merge Sort
 		
@@ -421,76 +485,117 @@ int main()
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
 		begin = std::chrono::high_resolution_clock::now();
-        mergeSort(length, ran);
+        mergeSort(length, ran, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
 		typeUp++;
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2++;
+        
 		
 		begin = std::chrono::high_resolution_clock::now();
-        mergeSort(length, inc);
+        mergeSort(length, inc, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
 		typeUp++;
-		
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2++;
+        
+        
 		begin = std::chrono::high_resolution_clock::now();
-        mergeSort(length, dec);
+        mergeSort(length, dec, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
-		
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2 = 0;
+        position3++;
+        
+        
 		//Quick Last Sort
 		
+        quickCheck = false;
         arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
 		begin = std::chrono::high_resolution_clock::now();
-        bubbleSort(length, ran);
+        quickSort(length, ran, quickCheck, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
 		typeUp++;
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2++;
+        
 		
 		begin = std::chrono::high_resolution_clock::now();
-        bubbleSort(length, inc);
+        quickSort(length, inc, quickCheck, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
 		typeUp++;
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2++;
+        
 		
 		begin = std::chrono::high_resolution_clock::now();
-        bubbleSort(length, dec);
+        quickSort(length, dec, quickCheck, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2 = 0;
+        position3++;
+        
 		
 		//Quick Random Sort
 		
+        quickCheck = true;
         arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
 		begin = std::chrono::high_resolution_clock::now();
-        bubbleSort(length, ran);
+        quickSort(length, ran, quickCheck, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
 		typeUp++;
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2++;
+        
 		
 		begin = std::chrono::high_resolution_clock::now();
-        bubbleSort(length, inc);
+        quickSort(length, inc, quickCheck, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
 		typeUp++;
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2++;
+        
 		
 		begin = std::chrono::high_resolution_clock::now();
-        bubbleSort(length, dec);
+        quickSort(length, ran, quickCheck, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2 = 0;
+        position3++;
+        
 		
 		//Heap Sort
 		
@@ -499,24 +604,37 @@ int main()
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
 		begin = std::chrono::high_resolution_clock::now();
-        heapSort(ran, length);
+        heapSort(ran, length, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
 		typeUp++;
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2++;
+        
 		
 		begin = std::chrono::high_resolution_clock::now();
-        heapSort(inc, length);
+        heapSort(inc, length, nCompared);
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
 		typeUp++;
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2++;
+        
 		
 		begin = std::chrono::high_resolution_clock::now();
-        heapSort(dec, length);;
+        heapSort(dec, length, nCompared);;
 		end = std::chrono::high_resolution_clock::now();
         elapsed_time = end - begin;
         timeLists[sortUp][lengthUp][typeUp] = elapsed_time.count();
+        numberOfCommarison[position1][position2][position3] = nCompared;
+        nCompared = 0;
+        position2 = 0;
+        position3 = 0;
+        
 	}
 	
 	
@@ -536,7 +654,7 @@ int main()
 	}
 	cout << endl;
 	
-	for(int sort = 0; sort < 7; sort++){
+	for(int sort = 0; sort < 8; sort++){
 		cout << setw(17) << left << sorts[sort];
 		for(int arrLength = 0; arrLength < 4; arrLength++){
 			for(int arrType = 0; arrType < 3; arrType++){
