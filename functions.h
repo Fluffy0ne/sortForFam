@@ -18,7 +18,7 @@ void swap (int& a, int& b) // helper function for sorting
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-void selectionSort(int size,int data[]) // first sort.
+void selectionSort(int size,int data[], int &nCompared) // first sort. // nCompared for number of comaprisons
 {
   int count = 0;
   int place = 0;
@@ -27,8 +27,9 @@ void selectionSort(int size,int data[]) // first sort.
   while(count < (size))
   {
     int min = data[count];
-    for(int i = count; i < (size); i++)// each position in Array
-    {// find smallest value in subsequent positions
+    for(int i = count; i < (size); i++)   // each position in Array
+    {                                   // find smallest value in subsequent positions
+      nCompared++;
       if(min > data[i])
       {
         min = data[i];
@@ -50,7 +51,7 @@ void selectionSort(int size,int data[]) // first sort.
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-void bubbleSort(int size, int data[]) //One of the simpler sorts, and number 2
+void bubbleSort(int size, int data[], int &nCompared) //One of the simpler sorts, and number 2 // nCompared for number of comparisons
 {
   bool check = false;
   int shrink = 1;
@@ -60,6 +61,7 @@ void bubbleSort(int size, int data[]) //One of the simpler sorts, and number 2
 	// each pair of elements in an ever-shrinking list
     for(int i = 0; i < (size - shrink); i++) 
     {
+      nCompared++;
       if(data[i] > data[i + 1])
       { // swap data[pairIndx] and data[pairIndx+1]
         swap(data[i],data[i + 1]);
@@ -73,7 +75,7 @@ void bubbleSort(int size, int data[]) //One of the simpler sorts, and number 2
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-void insertionSort(int size, int data[]) // Number 3.
+void insertionSort(int size, int data[], int &nCompared) // Number 3. // nCompared for number of comparisons
 {
   int j;
   int temp = 0;
@@ -86,14 +88,16 @@ void insertionSort(int size, int data[]) // Number 3.
     {
       data[j + 1] = data[j];// move previous element forward one position
       j--;
+      nCompared++;
     }
     data[j + 1] = temp; // insert saved element in open hole
+    nCompared++;
   } // end for     
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-void insertionSortMod(int size, int data[]) // Number 4.
+void insertionSortMod(int size, int data[], int &nCompared) // Number 4.
 {
   int j;
   int temp = 0;
@@ -106,15 +110,17 @@ void insertionSortMod(int size, int data[]) // Number 4.
     {
       data[j + 1] = data[j];// move previous element forward one position
       j--;
+      nCompared++;
     }
     data[j + 1] = temp; // insert saved element in open hole
+    nCompared++;
   } // end for     
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 // The merge part of merge sort.
-void merge (int left, int middle, int right, int data[]) 
+void merge (int left, int middle, int right, int data[], int &nCompared) 
 {
    int leftSize = middle - left + 1; // left side of the merge sort array
    
@@ -152,6 +158,7 @@ void merge (int left, int middle, int right, int data[])
         arrayIndex = arrayIndex + 1;
         rightIndex = rightIndex + 1;
       }
+      nCompared++;
    } // could still have something in either array left over, 
 	 //uneven ls/rs, or uneven shifting
    
@@ -179,23 +186,23 @@ void merge (int left, int middle, int right, int data[])
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 // building the recursion of merge sort.
-void mergeSort (int left, int right, int data[]) 
+void mergeSort (int left, int right, int data[], int &nCompared) 
 {
    if (right - left > 0)
    {
        int middle = (left + right) / 2;
-       mergeSort (left, middle, data);
-       mergeSort (middle + 1, right, data);
-       merge (left, middle, right, data);
+       mergeSort (left, middle, data, nCompared);
+       mergeSort (middle + 1, right, data, nCompared);
+       merge (left, middle, right, data, nCompared);
    }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 //the sort called in main, sort 5 in this case.
-void mergeSort (int n, int data[]) 
+void mergeSort (int n, int data[], int &nCompared) 
 {
-   mergeSort (0, n - 1, data);
+   mergeSort (0, n - 1, data, nCompared);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -217,7 +224,7 @@ int right_pivot(int right) // helper function pivot for quick sort
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 // partition for quick sort, helper function.
-int partition(int left, int right, int data[], bool quickCheck) 
+int partition(int left, int right, int data[], bool quickCheck, int &nCompared) // nCpmpared for number of comparisons
 {
     int pivot_index = 0;
   
@@ -245,6 +252,7 @@ int partition(int left, int right, int data[], bool quickCheck)
             // swap it into left partition
             pivot_index++;
         }    // and move the dividing point
+        nCompared++;
     }      
     swap(data[pivot_index], data[right]);
     // swap pivot into its correct location
@@ -255,17 +263,17 @@ int partition(int left, int right, int data[], bool quickCheck)
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 // helper function for recursion and partition.
-void quickSort(int left, int right, int data[], bool quickCheck) 
+void quickSort(int left, int right, int data[], bool quickCheck, int &nCompared) 
 {
     int division = 0;
     
     if (left < right)// being "unsorted" requires 2 or more values...
     {
-        division = partition(left, right, data, quickCheck);
+        division = partition(left, right, data, quickCheck, nCompared);
         // smaller values to left of division, larger to right
-        quickSort(left, (division - 1), data, quickCheck);
+        quickSort(left, (division - 1), data, quickCheck, nCompared);
         // now quicksort everything left of division
-        quickSort((division + 1), right, data, quickCheck);
+        quickSort((division + 1), right, data, quickCheck, nCompared);
         // and everything right of division
     }
 }
@@ -273,9 +281,9 @@ void quickSort(int left, int right, int data[], bool quickCheck)
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 // what is actually called in main, sort 6.
-void quickSort(int size, int data[], bool quickCheck) 
+void quickSort(int size, int data[], bool quickCheck, int &nCompared) 
 {
-    quickSort(0, (size - 1), data, quickCheck);
+    quickSort(0, (size - 1), data, quickCheck, nCompared);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -331,35 +339,37 @@ void destroyD(int size, int data[]){
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-void heapify(int arr[], int arrSize, int node){
+void heapify(int arr[], int arrSize, int node, int &nCompared){
 	int root = node;
 	int leftChild = 2*node +1;
 	int rightChild = 2*node + 2;
 	
 	if(leftChild < arrSize && arr[leftChild] > arr[root]){
 		root = leftChild;
+    nCompared++;
 	}
 	
 	if(rightChild < arrSize && arr[rightChild] > arr[root]){
 		root = rightChild;
+    nCompared++;
 	}
 	
 	if(root != node){
 		swap(arr[node], arr[root]);
-		heapify(arr, arrSize, root);
+		heapify(arr, arrSize, root, nCompared);
 	}
 }
 
 
-void heapSort(int arr[], int arrSize){
+void heapSort(int arr[], int arrSize, int &nCompared){
 	for(int i = arrSize / 2 - 1; i >= 0; i--){
-		heapify(arr, arrSize, i);
+		heapify(arr, arrSize, i, nCompared);
 	}
 	
 	for(int i = arrSize - 1; i >= 0; i--){
 		swap(arr[0], arr[i]);
 		
-		heapify(arr, i, 0);
+		heapify(arr, i, 0, nCompared);
 	}
 }
 
