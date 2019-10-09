@@ -295,14 +295,14 @@ void display(int size, int data[]) // simple display function.
     {
         cout << data[i] << ", ";
         
-        if((i + 1) == (size - 1))
+        if(((i+1)%10) == 0)
         {
-            cout << data[i + 1];
+            cout << data[i + 1] << endl;
             i++;
         }
-		
-		if(i > 0 && ((i%10) == 0)){
-			cout << endl;
+		else if((i + 1) == (size - 1)){
+			cout << data[i + 1] << endl;
+			i++;
 		}
     }
     cout << "\n\n";

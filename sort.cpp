@@ -49,10 +49,13 @@ int main()
 			cout << "Exit(0)\n";
 			
 			// NEED TO ADD CHECK IF INPUT IS NOT A NUMBER. dont remember how atm but got examples to view. 
-            cout << "\nPlease enter an array length between 2 and 100:";
-			cin >> lengthCheck;
-			cout << "\nPlease select the sort you would like:";
+            cout << "\nPlease select the sort you would like: ";
             cin >> menu;
+			
+			if(menu != 0){
+				cout << "\nPlease enter an array length between 2 and 100: ";
+				cin >> lengthCheck;
+			}
             
             if(menu < 0 || menu > 8) // check for numeric menu check
             {
@@ -305,12 +308,14 @@ int main()
 	int sortUp;
 	int lengthUp;
 	int typeUp = 0;
+	
+	string arrayTypes[3] = {"ran", "inc", "dec"};
     
     //number of comparisons in each sort ***************
     int position1 = 0;               // keeps track of the position in the array (amount of data)
     int position2 = 0;               // keeps track of the position in the array (ran, inc Dec)
     int position3 = 0;               // keeps track of the position in the array (type of sort)
-    int numberOfCommarison[4][3][7] = {0};
+    int numberOfCommarison[4][3][8] = {0};
     nCompared = 0;
     // number of comparisons in each sort *************
 	
@@ -661,6 +666,22 @@ int main()
 				cout << setw(11) << right << setprecision(5)
 					 << fixed << timeLists[sort][arrLength][arrType];
 			}
+		}
+		cout << endl;
+	}
+	cout << endl << endl;
+	cout << "     ";
+	for(int b = 0; b < 8; b++){
+		cout << setw(17) << left << fixed << sorts[b];
+	}
+	cout << endl;
+	for(int j = 0; j < 4; j++){
+		for(int k = 0; k < 3; k++){
+			cout << setw(5) << left << fixed << arrayTypes[k];
+			for(int l = 0; l < 8; l++){
+				cout << setw(17) << right << fixed << numberOfCommarison[j][k][l];
+			}
+			cout << endl;
 		}
 		cout << endl;
 	}
