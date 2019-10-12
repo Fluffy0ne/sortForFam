@@ -1,10 +1,15 @@
-/*
-	Group Members: 
-		Daniel Woodard
-		Abhijit Dutta
-		Rachael Hawthrone
-		Brody Modglin
-*/
+/**
+ * @file    source_filename.cpp
+ * @brief   Brief description of what this file contains shall be placed here.
+ *
+ * More general information about what this file contains, and how it is intended
+ * to be used shall be placed here, along with any additional information that
+ * you feel is relevant.
+ *
+ * @author  your name
+ * @date    date you created the file
+ */
+
 
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
