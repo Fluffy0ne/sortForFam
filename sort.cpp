@@ -672,12 +672,12 @@ int main()
 	cout << endl << endl;
 	cout << "     ";
 	for(int b = 0; b < 8; b++){
-		cout << setw(17) << left << fixed << sorts[b];
+		cout << setw(17) << right << fixed << sorts[b];
 	}
 	cout << endl;
 	for(int j = 0; j < 4; j++){
 		for(int k = 0; k < 3; k++){
-			cout << setw(5) << left << fixed << arrayTypes[k];
+			cout << setw(5) << right << fixed << arrayTypes[k];
 			for(int l = 0; l < 8; l++){
 				cout << setw(17) << right << fixed << numberOfCommarison[j][k][l];
 			}

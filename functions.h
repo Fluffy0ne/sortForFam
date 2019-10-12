@@ -16,6 +16,30 @@ void swap (int& a, int& b) // helper function for sorting
   b = temp;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////
+
+int binarySearch(int a[], int target, int bottom, int top){
+	if(top <= bottom){
+		if(target > a[bottom]){
+			return (bottom + 1);
+		}else{
+			return (bottom);
+		}
+	}
+	
+	int middle = (bottom + top)/2;
+	
+	if(target == a[middle]){
+		return (middle + 1);
+	}
+	
+	if(target > a[middle]){
+		return binarySearch(a, target, middle+1, top);
+	}
+	
+	return binarySearch(a, target, bottom, middle-1);
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 void selectionSort(int size,int data[], int &nCompared) // first sort. // nCompared for number of comaprisons
@@ -103,17 +127,18 @@ void insertionSortMod(int size, int data[], int &nCompared) // Number 4.
   int temp = 0;
   for(int i = 1; i < size; i++) // each element after the first
   {
-    temp = data[i];// save this number
     j = i - 1;
-	//previous elements are bigger than saved element
-    while(data[j] < temp && j >= 0) 
-    {
-      data[j + 1] = data[j];// move previous element forward one position
-      j--;
-      nCompared++;
-    }
-    data[j + 1] = temp; // insert saved element in open hole
-    nCompared++;
+	temp = data[i];// save this number
+	
+	int spot = binarySearch(data, temp, 0, j);
+	
+	while(j >= spot){
+		data[j+1] = data[j];
+		j--;
+		nCompared++;
+	}
+	data[j+1] = temp;
+	nCompared++;
   } // end for     
 }
 
