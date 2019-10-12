@@ -11,6 +11,8 @@
  */
 
 
+///Fix tabs?
+
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
@@ -193,7 +195,7 @@ void merge (int left, int middle, int right, int data[], int &nCompared)
 	 //uneven ls/rs, or uneven shifting
    
    // while loop before, should make only one of these true
-   while(leftIndex < leftSize) 
+	while(leftIndex < leftSize) 
    { // left already ordered, if it is only one left just throw it in.
       data[left + arrayIndex] = leftArray[leftIndex];
       arrayIndex = arrayIndex + 1; 
@@ -323,49 +325,20 @@ void display(int size, int data[]) // simple display function.
     cout << "\n";
     for(int i = 0; i < size; i++)
     {
-        cout << data[i] << ", ";
-        
         if(((i+1)%10) == 0)
         {
-            cout << data[i + 1] << endl;
-            i++;
+            cout  << setw(4) << right << data[i] << endl;
         }
-		else if((i + 1) == (size - 1)){
-			cout << data[i + 1] << endl;
-			i++;
+		else if((i) == (size - 1)){
+			cout  << setw(4) << right << data[i] << endl;
+		}
+		else
+		{
+			cout  << setw(4) << right << data[i] << ", ";
 		}
     }
     cout << "\n\n";
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-void destory(int size, int data[])
-{
-    int test [20] = {2, 1, 3, 5, 4, 20, 10, 12, 6, 7, 13,
-                     8, 14, 9, 19, 15, 17, 16, 11, 18};
-                     
-    for(int i = 0; i< size; i++)
-    {
-        data[i] = test[i];
-    }
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-//void destroyO(int size, int data[]){
-//	for(int i = 0; i < size; i++) { data[i] = random();}}
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-void destroyA(int size, int data[]){
-	for(int i = 0; i < size; i++) { data[i] = i;}}
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-
-void destroyD(int size, int data[]){
-	for(int i = 0; i < size; i++) { data[i] = size - i;}}
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -403,19 +376,9 @@ void heapSort(int arr[], int arrSize, int &nCompared){
 	}
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////
-
-int randoml()
-{
-  return rand() % 10000;
-}
-
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 void arraySetups(int ran[], int inc[], int dec[], int size){
-	//ran = new int[size];
-	//inc = new int[size];
-	//dec = new int[size];
 	for(int i = 0; i < size; i++)
     {
        ran[i] = rand() % 10000 + 0;

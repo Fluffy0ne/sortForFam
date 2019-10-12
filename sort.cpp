@@ -398,7 +398,6 @@ int main()
 		
 		//Bubble Sort
 		//Random
-        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -436,7 +435,6 @@ int main()
 		
 		//Insertion Sort
 		// random
-        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -475,7 +473,6 @@ int main()
 		
 		//Insertion Sort Mod
 		//random
-        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -514,7 +511,6 @@ int main()
 		
 		//Merge Sort
 		//random
-        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -554,7 +550,6 @@ int main()
 		//Quick Last Sort
 		//random
         quickCheck = false;
-        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -594,7 +589,6 @@ int main()
 		//Quick Random Sort
 		//random
         quickCheck = true;
-        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -633,7 +627,6 @@ int main()
 		
 		//Heap Sort
 		//random
-        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -706,7 +699,7 @@ int main()
 	cout << endl; // display for array types and number of comparisons
 	for(int j = 0; j < 4; j++){
 		for(int k = 0; k < 3; k++){
-			cout << setw(5) << right << fixed << arrayTypes[k];
+			cout << setw(5) << left << fixed << arrayTypes[k];
 			for(int l = 0; l < 8; l++){
 				cout << setw(17) << right << fixed << numberOfCommarison[j][k][l];
 			}
