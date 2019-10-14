@@ -22,6 +22,7 @@
 #define FUNCTIONS_H
 
 
+
 /**
  * @brief       This is a simple helper function to swap two values in a
  *              clean and clear manner in other funcitons
@@ -156,34 +157,35 @@ void insertionSort(int size, int data[], int &nCompared) // the third sort
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////
-// C O M E   B A C K   T O   T H I S.
-int binarySearch(int a[], int target, int bottom, int top){
-	if(top <= bottom)
+/**
+ * @brief   This function is to help the insertion sort have a
+ *          faster backtrack.
+ *
+ * @param   data     This is the array itself to be worked upon
+ * @param   target   The number being used to compare with.
+ * @param   left     The left most bound.
+ * @param   right    The right most bound.
+ *
+ * @return  should return a new index to speed up insertionsort.
+**/
+int binarySearch(int data[], int target, int left, int right)
+{ 
+  int middle = 0;
+  
+  while(left < right)
   {
-		if(target > a[bottom])
+    middle = (right + left) /2;
+    
+    if(target > data[middle])
     {
-			return (bottom + 1);
-		}
+      left = middle + 1;
+    }
     else
     {
-			return (bottom);
-		}
-	}
-	
-	int middle = (bottom + top) / 2;
-	
-	if(target == a[middle])
-  {
-		return (middle + 1);
-	}
-	
-	if(target > a[middle])
-  {
-    return binarySearch(a, target, middle + 1, top);
-	}
-	
-	return binarySearch(a, target, bottom, middle - 1);
+      right = middle;
+    }
+  }
+  return right;
 }
 
 
@@ -202,26 +204,28 @@ int binarySearch(int a[], int target, int bottom, int top){
  * @return  no return as it is a void funciton.
 **/
 
-void insertionSortMod(int size, int data[], int &nCompared) // The fourth sort.
+void insertionSortMod(int size, int data[], int &nCompared)
 {
   int j;
   int temp = 0;
-  for(int i = 1; i < size; i++) // each element after the first
+  
+  for(int i = 1; i < size; i++)
   {
-    j = i - 1; // different incrementer to keep up with both positions
-	  temp = data[i];// save this number
+    j = i - 1; 
+	  temp = data[i];
 	
-    int spot = binarySearch(data, temp, 0, j); // The modifed part of insertion.
+    int spot = binarySearch(data, temp, 0, (j + 1)); 
     
     while(j >= spot)
     {
       data[j+1] = data[j];
       j--;
-      nCompared++; // nCompared for number of comparisons
+      nCompared++; 
     }
-    data[j+1] = temp; // insert saved element in open hole
-    nCompared++; // nCompared for number of comparions
-  } // end for     
+    
+    data[j+1] = temp; 
+    nCompared++; 
+  }     
 }
 
 
@@ -424,11 +428,10 @@ int partition(int left, int right, int data[], bool quickCheck, int &nCompared)
     swap(data[pivot_index], data[right]);
     // move pivot to end (out of the way)
     pivot_index = left;
-    // start looking for "correct" location
 
     for(int i = left; i < (right); i++)
-    {// by scanning the entire array
-        if(data[i] < pivot_value) // if value smaller than pivot is found
+    {// if value smaller than pivot is found
+        if(data[i] < pivot_value) 
         {// swap it into left partition
             swap(data[i], data[pivot_index]);
          // and move the dividing point

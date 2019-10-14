@@ -50,8 +50,7 @@
 
 int main()
 {
-    
-    cout << "\n\n" << "DUMB TEST THAT SHOULDN'T BE HERE2" << "\n\n";
+    cout << endl << "Fluffy saintiy check" << endl;
     
     int menu = 9;		// setting the first menu choice.
     srand(time(NULL));	// setting up the srand for random number generation
@@ -62,7 +61,6 @@ int main()
     int lengthCheck = 100;
 	int length = 100;
     int nCompared = 0; // used to calculate comparison while AUTO RUN
-    //int *ran, *inc, *dec;
 	
 	
     do // first do while to allow for the user to keep picking a new sort.
@@ -316,7 +314,7 @@ int main()
     cout << "\n\nSTARTING AUTOMATIC SORTS\n\n";
     
 	string sorts[8] = {"Selection","Bubble","Insertion","Mod Insertion",
-						"Merge","Quick Ran","Quick Last","Heap"};
+						"Merge","Quick Last","Quick Ran","Heap"};
     
     // building a  array of strings with sort names for outpout later.
     
