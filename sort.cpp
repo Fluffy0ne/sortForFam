@@ -21,11 +21,11 @@
  * @author  Daniel Woodard -- 50436100	--	Daniel6100u14 -- u14
  *          Brody Modglin -- 50523177 -- Brody3177u07 -- u07
  *          Rachael Hawthrone -- 50374766 -- Rachael4766g09 -- g09
- *          Abhijit Dutta -- -- Abhijit -- 
+ *          Abhijit Dutta -- 50511365 -- Abhijit1365 --
+ *          
  * @date    Monday, September 9th
  *******************************************************************************
 **/
-
 
 
 #include <iostream> // for basic needed statements.
@@ -50,6 +50,9 @@
 
 int main()
 {
+    
+    cout << "\n\n" << "DUMB TEST THAT SHOULDN'T BE HERE2" << "\n\n";
+    
     int menu = 9;		// setting the first menu choice.
     srand(time(NULL));	// setting up the srand for random number generation
 	// This is for changing between the two quick sorts to prevent unneeded code.
@@ -398,6 +401,7 @@ int main()
 		
 		//Bubble Sort
 		//Random
+        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -435,6 +439,7 @@ int main()
 		
 		//Insertion Sort
 		// random
+        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -473,6 +478,7 @@ int main()
 		
 		//Insertion Sort Mod
 		//random
+        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -511,6 +517,7 @@ int main()
 		
 		//Merge Sort
 		//random
+        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -550,6 +557,7 @@ int main()
 		//Quick Last Sort
 		//random
         quickCheck = false;
+        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -589,6 +597,7 @@ int main()
 		//Quick Random Sort
 		//random
         quickCheck = true;
+        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -627,6 +636,7 @@ int main()
 		
 		//Heap Sort
 		//random
+        arraySetups(ran, inc, dec, length);
 		typeUp = 0;
 		sortUp++;
 		arraySetups(ran, inc, dec, length);
@@ -699,7 +709,7 @@ int main()
 	cout << endl; // display for array types and number of comparisons
 	for(int j = 0; j < 4; j++){
 		for(int k = 0; k < 3; k++){
-			cout << setw(5) << left << fixed << arrayTypes[k];
+			cout << setw(5) << right << fixed << arrayTypes[k];
 			for(int l = 0; l < 8; l++){
 				cout << setw(17) << right << fixed << numberOfCommarison[j][k][l];
 			}
